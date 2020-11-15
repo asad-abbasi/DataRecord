@@ -6,13 +6,13 @@ using System.Collections.Specialized;
 
 namespace DataRecord.Models
 {
-    public class DRItem
+    public class Project
     {
         public string ID { set; get; }
         public string Name { set; get; }
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }
 
-        public ObservableCollection<DRItemDescription> dataItemDescList = new ObservableCollection<DRItemDescription>();
+        public ObservableCollection<ProjectListItem> dataItemDescList = new ObservableCollection<ProjectListItem>();
     }
 }

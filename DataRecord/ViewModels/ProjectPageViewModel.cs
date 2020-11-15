@@ -11,7 +11,7 @@ using Xamarin.Forms;
 
 namespace DataRecord.ViewModels
 {
-    class DRDetailViewModel : INotifyPropertyChanged
+    class ProjectPageViewModel : INotifyPropertyChanged
     {
 //        DRItem currentItem;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -22,9 +22,9 @@ namespace DataRecord.ViewModels
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        ObservableCollection<DRItemDescription> descList;// = new ObservableCollection<DRItemDescription>();
+        ObservableCollection<ProjectListItem> descList;// = new ObservableCollection<DRItemDescription>();
 //        public DRDetailViewModel(ObservableCollection<DRItemDescription> DataItemDescList)
-        public DRDetailViewModel(DRItem selectedItem)
+        public ProjectPageViewModel(Project selectedItem)
         {
             DeleteDataItemDescCommand = new Command(/*asynv () await*/ DeleteDataItemDesc /*() => !IsBussy*/);
             descList = selectedItem.dataItemDescList;
@@ -32,13 +32,13 @@ namespace DataRecord.ViewModels
             //            AddNewDataItemDescToList();
             //            currentItem = selectedItem;
         }
-        public DRDetailViewModel()
+        public ProjectPageViewModel()
         {
         }
 
         public Command DeleteDataItemDescCommand { private set; get; }
 
-        public ObservableCollection<DRItemDescription> DescList
+        public ObservableCollection<ProjectListItem> DescList
         {
 /*            set
             {

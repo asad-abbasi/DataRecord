@@ -10,16 +10,17 @@ using DataRecord.ViewModels;
 using System.Diagnostics;
 using DataRecord.Models;
 using System.Collections.ObjectModel;
+using DataRecord.Views;
 
 namespace DataRecord.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DRDataDisplayPage : ContentPage
+    public partial class MainPage : ContentPage
     {
-        public DRDataDisplayPage()
+        public MainPage()
         {
             InitializeComponent();
-            BindingContext = new DRDataDisplayViewModel();
+            BindingContext = new MainPageViewModel();
         }
 
 
@@ -28,7 +29,7 @@ namespace DataRecord.Views
             if (e.SelectedItem != null)
             {
 //                Debug.WriteLine("Action: " + SelectedItem.ElementAt(0).Versions);
-                await Navigation.PushAsync(new DRDetailPage((DRItem)e.SelectedItem));
+                await Navigation.PushAsync(new ProjectPage((Project)e.SelectedItem));
             }
         }
    }

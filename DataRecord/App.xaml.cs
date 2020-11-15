@@ -14,11 +14,11 @@ namespace DataRecord
 //        CurrentInfo = new DRItem();
 
         //            MainPage = new DRDataDisplayPage();
-        MainPage = new NavigationPage(new DRDataDisplayPage());
+        MainPage = new NavigationPage(new MainPage());
             //            MainPage = new DRDetailPage();
         }
 
-        public DRItem CurrentInfo { private set; get; }
+        public Project CurrentInfo { private set; get; }
 
         protected override void OnStart()
         {

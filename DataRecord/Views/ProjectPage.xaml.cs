@@ -15,11 +15,11 @@ namespace DataRecord.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
-    public partial class DRDetailPage : ContentPage
+    public partial class ProjectPage : ContentPage
     {
-        public ObservableCollection<DRItemDescription> CurrentItemDescList = new ObservableCollection<DRItemDescription>();
+        public ObservableCollection<ProjectListItem> CurrentItemDescList = new ObservableCollection<ProjectListItem>();
 
-        public DRDetailPage()
+        public ProjectPage()
         {
             InitializeComponent();
 //            BindingContext = new DRDetailViewModel(CurrentItemDescList);
@@ -27,12 +27,12 @@ namespace DataRecord.Views
 
             //Debug.WriteLine("Action: " + selectedItem.ElementAt(0).Versions);
         }
-        public DRDetailPage(DRItem selectedItem)
+        public ProjectPage(Project selectedItem)
         {
             InitializeComponent();
 //            CurrentItemDescList = selectedItem;
 //            BindingContext = new DRDetailViewModel(CurrentItemDescList);
-            BindingContext = new DRDetailViewModel(selectedItem);
+            BindingContext = new ProjectPageViewModel(selectedItem);
 
 
 
