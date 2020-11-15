@@ -4,7 +4,7 @@ using System.Text;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 
-namespace DataRecord.Models
+namespace MyProjects.Models
 {
     public class Project
     {

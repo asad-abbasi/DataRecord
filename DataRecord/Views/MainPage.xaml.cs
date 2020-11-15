@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using DataRecord.ViewModels;
+using MyProjects.ViewModels;
 using System.Diagnostics;
-using DataRecord.Models;
+using MyProjects.Models;
 using System.Collections.ObjectModel;
-using DataRecord.Views;
+using MyProjects.Views;
 
-namespace DataRecord.Views
+namespace MyProjects.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage

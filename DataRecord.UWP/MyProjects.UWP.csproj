@@ -7,8 +7,8 @@
     <ProjectGuid>{CE87ECF7-FDF5-45E0-8CA9-605C8201769A}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DataRecord.UWP</RootNamespace>
-    <AssemblyName>DataRecord.UWP</AssemblyName>
+    <RootNamespace>MyProjects.UWP</RootNamespace>
+    <AssemblyName>MyProjects.UWP</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.18362.0</TargetPlatformVersion>
@@ -144,13 +144,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="4.6.0.1141" />
-    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9"/>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.1.9" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataRecord\DataRecord.csproj">
-      <Project>{421AADDD-FFBA-408B-8623-64ABFEF3BFA8}</Project>
-      <Name>DataRecord</Name>
+    <ProjectReference Include="..\DataRecord\MyProjects.csproj">
+      <Project>{2A4EA176-33E8-418D-8D69-8A0B8A907BAE}</Project>
+      <Name>MyProjects</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">

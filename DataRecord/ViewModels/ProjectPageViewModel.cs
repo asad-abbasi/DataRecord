@@ -5,11 +5,11 @@ using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Text;
-using DataRecord.Models;
-using DataRecord.Views;
+using MyProjects.Models;
+using MyProjects.Views;
 using Xamarin.Forms;
 
-namespace DataRecord.ViewModels
+namespace MyProjects.ViewModels
 {
     class ProjectPageViewModel : INotifyPropertyChanged
     {

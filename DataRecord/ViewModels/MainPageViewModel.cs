@@ -6,12 +6,12 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using Xamarin.Forms;
-using DataRecord.Models;
-using DataRecord.Views;
+using MyProjects.Models;
+using MyProjects.Views;
 using System.Diagnostics;
 using System.Linq;
 
-namespace DataRecord.ViewModels
+namespace MyProjects.ViewModels
 {
     class MainPageViewModel : INotifyPropertyChanged
     {

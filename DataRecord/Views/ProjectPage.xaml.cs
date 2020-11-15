@@ -5,13 +5,13 @@ using System.Text;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using DataRecord.ViewModels;
-using DataRecord.Models;
-using DataRecord.Views;
+using MyProjects.ViewModels;
+using MyProjects.Models;
+using MyProjects.Views;
 using System.Diagnostics;
 using System.Collections.ObjectModel;
 
-namespace DataRecord.Views
+namespace MyProjects.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 

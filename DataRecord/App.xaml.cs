@@ -1,10 +1,10 @@
-﻿using DataRecord.Models;
-using DataRecord.Views;
+﻿using MyProjects.Models;
+using MyProjects.Views;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace DataRecord
+namespace MyProjects
 {
     public partial class App : Application
     {

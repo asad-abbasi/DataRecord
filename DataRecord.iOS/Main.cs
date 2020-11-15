@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace DataRecord.iOS
+namespace MyProjects.iOS
 {
     public class Application
     {

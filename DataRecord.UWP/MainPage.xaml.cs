@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace DataRecord.UWP
+namespace MyProjects.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace DataRecord.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new DataRecord.App());
+            LoadApplication(new MyProjects.App());
         }
     }
 }
