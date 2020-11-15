@@ -42,10 +42,10 @@ namespace DataRecord.ViewModels
         {
 /*            set
             {
-                DescList = value;
+                descList = value;
                 OnPropertyChanged();
             }*/
-            get { return DescList; }
+            get { return descList; }
         }
 
         void DeleteDataItemDesc()

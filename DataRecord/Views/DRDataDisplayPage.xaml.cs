@@ -27,22 +27,9 @@ namespace DataRecord.Views
         {
             if (e.SelectedItem != null)
             {
-//                DRItem sel = (DRItem)e.SelectedItem;
-//                ObservableCollection<DRItemDescription> SelectedItem = sel.dataItemDescList;
-
 //                Debug.WriteLine("Action: " + SelectedItem.ElementAt(0).Versions);
                 await Navigation.PushAsync(new DRDetailPage((DRItem)e.SelectedItem));
             }
-
         }
-
-        private void ButtonDelete_Click(object sender, System.EventArgs e)
-        {
-            
-            //DeleteDataItemFromList((DRItem)listView.SelectedItem);
-            Debug.WriteLine("Action: del event");
-           
-
-        }
-    }
+   }
 }
