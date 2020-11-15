@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DataRecord.Views.DRDetailPage">
+
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="0" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Data display. -->
+        <!--BindingContext="x:Reference Name=CurrentItemDescList"-->
+        <ListView x:Name="listView"
+                  ItemsSource="{Binding DescList}"
+              Header ="List of Data Item's Description"
+                  Grid.Row="0" Grid.Column="0" Grid.RowSpan="4">
+            <!-- ItemSelected="OnListViewItemSelected">-->
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+
+                    <Label Text= "List of Data Item's Description"
+                           FontSize="Large"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Versions}" 
+                Detail="{Binding CreatorName}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackLayout x:Name="detailLayout" Grid.Row="5" Grid.Column="0">
+            <Button Text="Delete"
+                    Command="{Binding DeleteDataItemDescCommand}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
