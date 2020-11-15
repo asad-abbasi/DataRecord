@@ -54,7 +54,7 @@
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding ID}" FontSize="Medium" TextColor="Firebrick"/>
                             <Label Grid.Row="1" Grid.Column="0" Text="{Binding Name}" TextColor="DarkSlateGray"/>
                             <Button x:Name ="ButtonDelete" Text="Delete" Grid.Row="1" Grid.Column="1" TextColor="DarkSlateGray" BackgroundColor="BurlyWood" BorderColor="Black"
-                                Command="{Binding DeleteDataItemCommand}" CommandParameter="{Binding .}" HorizontalOptions="End"/>
+                                Command="{Binding Path=BindingContext.DeleteDataItemCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" HorizontalOptions="End"/>
                         </Grid>
                 </ViewCell>
                     <!--<ImageCell 
