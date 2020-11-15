@@ -21,7 +21,7 @@ namespace DataRecord.ViewModels
         public DRDataDisplayViewModel()
         {
             AddNewDataItemCommand = new Command(/*asynv () await*/ AddNewDataItem /*() => !IsBussy*/);
-            DeleteDataItemCommand = new Command(DeleteDataItem);
+            DeleteDataItemCommand = new Command<DRItem>(DeleteDataItem);
 
             AddNewDataItemToList();
         }
@@ -134,9 +134,9 @@ namespace DataRecord.ViewModels
             Debug.WriteLine("Action: New event");
 
         }
-        void DeleteDataItem()
+        void DeleteDataItem(DRItem dRItem)
         {
-            dataItemList.Remove(currentItem);
+            dataItemList.Remove(dRItem);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
