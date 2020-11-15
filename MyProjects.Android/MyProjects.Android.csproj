@@ -89,7 +89,7 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataRecord\MyProjects.csproj">
+    <ProjectReference Include="..\MyProjects\MyProjects.csproj">
       <Project>{2A4EA176-33E8-418D-8D69-8A0B8A907BAE}</Project>
       <Name>MyProjects</Name>
     </ProjectReference>
