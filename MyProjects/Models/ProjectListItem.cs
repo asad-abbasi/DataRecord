@@ -8,6 +8,5 @@ namespace MyProjects.Models
     {
         public string Versions{ set; get; }
         public string CreatorName { set; get; }
-
     }
 }

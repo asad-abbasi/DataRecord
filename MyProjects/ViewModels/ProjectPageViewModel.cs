@@ -22,36 +22,34 @@ namespace MyProjects.ViewModels
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        ObservableCollection<ProjectListItem> descList;// = new ObservableCollection<DRItemDescription>();
-//        public DRDetailViewModel(ObservableCollection<DRItemDescription> DataItemDescList)
-        public ProjectPageViewModel(Project selectedItem)
+        Project selectedItem;
+        ObservableCollection<ProjectListItem> descList;
+        public ProjectPageViewModel(Project sel)
         {
-            DeleteDataItemDescCommand = new Command(/*asynv () await*/ DeleteDataItemDesc /*() => !IsBussy*/);
-            descList = selectedItem.dataItemDescList;
+            DeleteProjectDescCommand = new Command<ProjectListItem>(/*asynv () await*/ DeleteProjectDesc /*() => !IsBussy*/);
+            descList = sel.dataItemDescList;
+            selectedItem = sel;
             OnPropertyChanged();
-            //            AddNewDataItemDescToList();
-            //            currentItem = selectedItem;
         }
         public ProjectPageViewModel()
         {
         }
 
-        public Command DeleteDataItemDescCommand { private set; get; }
+        public Command DeleteProjectDescCommand { private set; get; }
 
         public ObservableCollection<ProjectListItem> DescList
         {
-/*            set
-            {
-                descList = value;
-                OnPropertyChanged();
-            }*/
             get { return descList; }
         }
-
-        void DeleteDataItemDesc()
+        public Project SelectedItem
         {
-  //          Debug.WriteLine("Action: " + dataItemDescList[0].ID);
+            get { return selectedItem; }
+        }
 
+        void DeleteProjectDesc(ProjectListItem version)
+        {
+            Debug.WriteLine("Action: in delete");
+            selectedItem.dataItemDescList.Remove(version);
         }
     }
 }

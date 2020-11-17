@@ -13,6 +13,7 @@ namespace DataRecord
         public MainPage()
         {
             InitializeComponent();
+
         }
     }
 }

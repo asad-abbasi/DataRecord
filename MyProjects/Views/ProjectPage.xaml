@@ -3,45 +3,61 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyProjects.Views.ProjectPage">
 
-    <Grid x:Name="mainGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0" />
-        </Grid.ColumnDefinitions>
-
         <!-- Data display. -->
-        <!--BindingContext="x:Reference Name=CurrentItemDescList"-->
+        <StackLayout Orientation="Vertical" >
+            <Grid x:Name="Propertygrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                
+                <Label Text="ID :" Grid.Row="0" Grid.Column="0" FontSize="Medium" BackgroundColor="Aquamarine" TextColor="Black"/>
+                <Label Text="{Binding SelectedItem.ID}" Grid.Row="0" Grid.Column="1" FontSize="Medium" />
+
+                <Label Text="Name :" Grid.Row="1" Grid.Column="0" FontSize="Medium" BackgroundColor="Aquamarine" TextColor="Black"/>
+                <Label Text="{Binding SelectedItem.Name}" Grid.Row="1" Grid.Column="1" FontSize="Medium" HorizontalOptions="StartAndExpand"/>
+            </Grid>
         <ListView x:Name="listView"
-                  ItemsSource="{Binding DescList}"
-              Header ="List of Data Item's Description"
-                  Grid.Row="0" Grid.Column="0" Grid.RowSpan="4">
-            <!-- ItemSelected="OnListViewItemSelected">-->
+                HasUnevenRows="True"
+                ItemsSource="{Binding DescList}"
+                Header ="List of Project Description">
             <ListView.HeaderTemplate>
                 <DataTemplate>
-
                     <Label Text= "List of Data Item's Description"
-                           FontSize="Large"
+                           FontSize="Title"
                            FontAttributes="Bold"
                            HorizontalTextAlignment="Center"/>
-
                 </DataTemplate>
             </ListView.HeaderTemplate>
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Versions}" 
-                Detail="{Binding CreatorName}" />
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding Versions}" FontSize="Medium" TextColor="Firebrick"/>
+                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding CreatorName}" TextColor="DarkSlateGray"/>
+                                <Button x:Name ="ButtonDelete" Text="Delete" Grid.Row="1" Grid.Column="1" TextColor="DarkSlateGray" BackgroundColor="BurlyWood" BorderColor="Black"
+                                Command="{Binding Path=BindingContext.DeleteProjectDescCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" HorizontalOptions="End"/>
+                            </Grid>
+                        </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <StackLayout x:Name="detailLayout" Grid.Row="5" Grid.Column="0">
-            <Button Text="Delete"
-                    Command="{Binding DeleteDataItemDescCommand}" />
-        </StackLayout>
-    </Grid>
+    </StackLayout>
 </ContentPage>
+
+
+    
