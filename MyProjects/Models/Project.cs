@@ -19,7 +19,7 @@ namespace MyProjects.Models
 */
         public ObservableCollection<ProjectListItem> dataItemDescList = new ObservableCollection<ProjectListItem>();
 
-        public Project ShallowCopy()
+        public Project DeepCopy()
         {
             Project other = (Project)this.MemberwiseClone();
             other.dataItemDescList = new ObservableCollection<ProjectListItem>();
@@ -27,10 +27,8 @@ namespace MyProjects.Models
             int count = this.dataItemDescList.Count;
             for (int index = 0; index < count; index++)
             {
-                Debug.WriteLine("Action: " + this.ID);
-                Debug.WriteLine("Action: " + (this.dataItemDescList[count]).Versions);
-                other.dataItemDescList.Add(new ProjectListItem((this.dataItemDescList[0]).Versions, (this.dataItemDescList[count]).CreatorName));
-                Debug.WriteLine("Action: " + (this.dataItemDescList[count]).Versions + "copied" + (other.dataItemDescList[0]).Versions);
+                Debug.WriteLine("Action: " + (this.dataItemDescList[index]).Versions);
+                other.dataItemDescList.Add(new ProjectListItem((this.dataItemDescList[index]).Versions, (this.dataItemDescList[index]).CreatorName));
             }
 
             return other;

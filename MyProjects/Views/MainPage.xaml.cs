@@ -23,16 +23,15 @@ namespace MyProjects.Views
             BindingContext = new MainPageViewModel();
         }
 
-        Project copySelItem;// = new Project();
-        int SelItemIndex;
+        Project copySelItem;
+        int SelItemIndex=-1;
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             if (e.SelectedItem != null)
             {
-                //               Debug.WriteLine("Action: " + SelectedItem.ElementAt(0).Versions);
-               Debug.WriteLine("Action: " + (((Project)(e.SelectedItem)).dataItemDescList[0]).Versions);
+                Debug.WriteLine("Action: " + (((Project)(e.SelectedItem)).dataItemDescList[0]).Versions);
 
-//                copySelItem = ((Project)e.SelectedItem).ShallowCopy();
+                copySelItem = ((Project)e.SelectedItem).DeepCopy();
                 listView.SelectedItem = null;
 
                 //get index of sel item from viewmodel
@@ -40,8 +39,7 @@ namespace MyProjects.Views
                 //pass this index to new SaveNewItem method to overwrite the updated selected item
                 SelItemIndex = mainViewModel.DataItemList.IndexOf((Project)e.SelectedItem);
 
-//                await Navigation.PushAsync(new ProjectPage(copySelItem, App.PAGE_TYPE_UPDATE)); //update/display page
-                await Navigation.PushAsync(new ProjectPage((Project)e.SelectedItem, App.PAGE_TYPE_UPDATE)); //update/display page
+                await Navigation.PushAsync(new ProjectPage(copySelItem, App.PAGE_TYPE_UPDATE)); //update/display page
             }
         }
 
@@ -51,10 +49,10 @@ namespace MyProjects.Views
 
         }
 
-        public void SaveNewItem(Project newItem, int pageType)//not  dn
+        public void SaveNewItem(Project newItem, int pageType)
         {
 
-            ((MainPageViewModel)BindingContext).SaveNewItemToList(newItem, pageType);
+            ((MainPageViewModel)BindingContext).SaveNewItemToList(newItem, pageType, SelItemIndex);
         }
     }
 }

@@ -139,12 +139,17 @@ namespace MyProjects.ViewModels
             dataItemList.Remove(dRItem);
         }
 
-        public void SaveNewItemToList(Project newItem, int pageType)
+        public void SaveNewItemToList(Project newItem, int pageType, int updateItemIndex)
         {
             //if new item
             if (pageType == App.PAGE_TYPE_NEW)
             {
                 dataItemList.Add(newItem);
+                OnPropertyChanged();
+            }
+            else
+            {
+                dataItemList[updateItemIndex] = newItem;
                 OnPropertyChanged();
             }
         }

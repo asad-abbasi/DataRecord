@@ -27,7 +27,7 @@ namespace MyProjects.Views
             PageType = pageType;
         }
 
-        async void OnAddButtonClicked(object sender, EventArgs e)
+        async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             // Get the MainPage that invoked this page. 
             NavigationPage navPage = (NavigationPage)Application.Current.MainPage; 

@@ -39,15 +39,12 @@ namespace MyProjects.ViewModels
                 descList = new ObservableCollection<ProjectListItem>();
 
             if (PageType == App.PAGE_TYPE_UPDATE)
-            {
                 enable = true;
-            }
             else
-            {
                 enable = false;
-            }
 
             InsertNewDescCommand = new Command(OnInsertDesc);
+            DeleteProjectDescCommand = new Command<ProjectListItem>(OnDeleteDesc) ;
             OnPropertyChanged();
         }
 
@@ -130,7 +127,14 @@ namespace MyProjects.ViewModels
         {
             descList.Add(new ProjectListItem { Versions = " ", CreatorName = " " });
         }
+
+        void OnDeleteDesc(ProjectListItem delItem)
+        {
+            descList.Remove(delItem);
+        }
         public Command InsertNewDescCommand { private set; get; }
+        public Command DeleteProjectDescCommand { private set; get; }
+        
 
     }
 }

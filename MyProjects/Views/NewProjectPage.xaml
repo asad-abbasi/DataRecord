@@ -25,11 +25,6 @@
                         MaximumDate="{Binding Date}"
                 Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" />
 
-<!--            <Label Text="Version No." FontAttributes="Bold" FontSize="Medium" Grid.Row="3" Grid.Column="0" /> -->
-<!--            <Entry Text="{Binding Version}" Placeholder="Enter Version" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/> -->
-<!--            <Label Text="Creator Name:" FontAttributes="Bold" FontSize="Medium" Grid.Row="4" Grid.Column="0"/>  -->
-<!--            <Entry Text="{Binding CName}" Placeholder="Enter Name" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/> -->
-
             <!--Listview from project page-->
             <ListView x:Name="listView" Grid.Row="3" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="5"
                 HasUnevenRows="True"
@@ -73,7 +68,7 @@
 
             <!--Listview ends here-->
             <Button Text="Save" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3"
-                    Clicked ="OnAddButtonClicked" />
+                    Clicked ="OnSaveButtonClicked" />
             <Button Text="Cancle" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="3"
                     Clicked ="OnCancleButtonClicked" />
         </Grid>
