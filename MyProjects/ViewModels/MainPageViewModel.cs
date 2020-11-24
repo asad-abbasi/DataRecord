@@ -57,7 +57,7 @@ namespace MyProjects.ViewModels
             dataItem1.Name = "Adding Machine";
             dataItem1.DateCreated = DateTime.Now;
             dataItem1.DateModified = DateTime.Now;
-            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem {Versions = "Ver 1.2.2", CreatorName = "Jhon" });
             dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "CHaun" });
             dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "Jhon" });
             dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "Jhon" });
@@ -137,6 +137,16 @@ namespace MyProjects.ViewModels
         void DeleteDataItem(Project dRItem)
         {
             dataItemList.Remove(dRItem);
+        }
+
+        public void SaveNewItemToList(Project newItem, int pageType)
+        {
+            //if new item
+            if (pageType == App.PAGE_TYPE_NEW)
+            {
+                dataItemList.Add(newItem);
+                OnPropertyChanged();
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

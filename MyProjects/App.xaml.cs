@@ -8,6 +8,9 @@ namespace MyProjects
 {
     public partial class App : Application
     {
+        public static int PAGE_TYPE_NEW = 1;
+        public static int PAGE_TYPE_UPDATE = 0;
+        public static long NEXT_INDEX = 0;
         public App()
         {
             InitializeComponent();

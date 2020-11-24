@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyProjects.Views.ProjectPage">
+
+    <StackLayout x:Name="detailLayout" Orientation="Vertical">
+            <Label Text="PLEASE ENTER YOUR PROJECT DATA"
+                HorizontalOptions="CenterAndExpand"
+                   FontSize="Large"
+                   FontAttributes="Bold"/>
+
+        <Grid x:Name="mainGrid" RowSpacing="2" >
+            <!-- Initialized for Portrait mode. -->
+
+             <Label  Text="Project ID:" FontAttributes="Bold" FontSize="Medium" Grid.Row="0" Grid.Column="0" IsVisible="{Binding Enable}"/>  
+             <Entry Text="{Binding NewItem.ID}" Placeholder="Enter Id" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" IsReadOnly="true" IsVisible="{Binding Enable}"/> 
+            <Label Text="Project Name:" FontAttributes="Bold" FontSize="Medium" Grid.Row="0" Grid.Column="3"/>
+            <Entry Text="{Binding NewItem.Name}" Placeholder="Enter Name" Grid.Row="0" Grid.Column="4" Grid.ColumnSpan="2"/>
+            <Label Text="Date Created" FontAttributes="Bold" FontSize="Medium" Grid.Row="1" Grid.Column="0" />
+            <DatePicker x:Name="startDatePicker" Format="D" MaximumDate="{Binding MinCreatedDate}"
+                Date="{Binding NewItem.DateCreated}" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="4"/>
+
+            <Label Text="Date Modified" FontAttributes="Bold" FontSize="Medium" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="Fill" />
+            <DatePicker x:Name="modifiedDatePicker" Format="D" Date="{Binding NewItem.DateModified}"
+                        MaximumDate="{Binding Date}"
+                Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" />
+
+<!--            <Label Text="Version No." FontAttributes="Bold" FontSize="Medium" Grid.Row="3" Grid.Column="0" /> -->
+<!--            <Entry Text="{Binding Version}" Placeholder="Enter Version" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2"/> -->
+<!--            <Label Text="Creator Name:" FontAttributes="Bold" FontSize="Medium" Grid.Row="4" Grid.Column="0"/>  -->
+<!--            <Entry Text="{Binding CName}" Placeholder="Enter Name" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2"/> -->
+
+            <!--Listview from project page-->
+            <ListView x:Name="listView" Grid.Row="3" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="5"
+                HasUnevenRows="True"
+                ItemsSource="{Binding DescList}"
+                Header ="List of Project Description">
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <Label Text= "List of Data Item's Description"
+                           FontSize="Title"
+                           FontAttributes="Bold"
+                           HorizontalTextAlignment="Center"/>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Entry Grid.Row="0" Grid.Column="0" Placeholder="Enter Version" Text="{Binding Versions}" FontSize="Small" TextColor="Firebrick" IsEnabled="True"/>
+                                <Entry Grid.Row="1" Grid.Column="0" Placeholder="Enter Version" Text="{Binding CreatorName}" FontSize="Small" TextColor="DarkSlateGray"/>
+                                <Button x:Name ="ButtonDelete" Text="Delete" Grid.Row="1" Grid.Column="1" TextColor="DarkSlateGray" BackgroundColor="BurlyWood" BorderColor="Black"
+                                Command="{Binding Path=BindingContext.DeleteProjectDescCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" HorizontalOptions="End"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+            <!--Listview ends here-->
+            <Button Text="Insert" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="2"
+                    Command="{Binding InsertNewDescCommand}" />
+
+            <!--Listview ends here-->
+            <Button Text="Save" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="3"
+                    Clicked ="OnAddButtonClicked" />
+            <Button Text="Cancle" Grid.Row="10" Grid.Column="3" Grid.ColumnSpan="3"
+                    Clicked ="OnCancleButtonClicked" />
+        </Grid>
+
+
+    </StackLayout>
+</ContentPage>
