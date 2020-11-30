@@ -55,8 +55,8 @@ namespace MyProjects.ViewModels
 
             dataItem1.ID = "PR 01";
             dataItem1.Name = "Adding Machine";
-            dataItem1.DateCreated = DateTime.Now;
-            dataItem1.DateModified = DateTime.Now;
+            dataItem1.DateCreated = DateTime.Now.Date;
+            dataItem1.DateModified = DateTime.Now.Date;
             dataItem1.dataItemDescList.Add(new ProjectListItem {Versions = "Ver 1.2.2", CreatorName = "Jhon" });
             dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "CHaun" });
             dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "Jhon" });
@@ -68,8 +68,8 @@ namespace MyProjects.ViewModels
             Project dataItem2 = new Project();
             dataItem2.ID = "PR 06";
             dataItem2.Name = "Adding Machine";
-            dataItem2.DateCreated = DateTime.Now;
-            dataItem2.DateModified = DateTime.Now;
+            dataItem2.DateCreated = DateTime.Now.Date;
+            dataItem2.DateModified = DateTime.Now.Date;
             dataItem2.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "Jhon" });
             dataItem2.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "CHaun" });
             dataItem2.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "Jhon" });
@@ -81,8 +81,8 @@ namespace MyProjects.ViewModels
             Project dataItem6 = new Project();
             dataItem6.ID = "PR 02";
             dataItem6.Name = "Date Storage Machine";
-            dataItem6.DateCreated = DateTime.Now;
-            dataItem6.DateModified = DateTime.Now;
+            dataItem6.DateCreated = DateTime.Now.Date;
+            dataItem6.DateModified = DateTime.Now.Date;
             dataItem6.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
             dataItem6.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "CHaun" });
             dataItem6.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
@@ -93,8 +93,8 @@ namespace MyProjects.ViewModels
             Project dataItem3 = new Project();
             dataItem3.ID = "PR 03";
             dataItem3.Name = "Paitient Record Keeping";
-            dataItem3.DateCreated = DateTime.Now;
-            dataItem3.DateModified = DateTime.Now;
+            dataItem3.DateCreated = DateTime.Now.Date;
+            dataItem3.DateModified = DateTime.Now.Date;
             dataItem3.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
             dataItem3.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "CHaun" });
             dataItem3.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
@@ -105,8 +105,8 @@ namespace MyProjects.ViewModels
             Project dataItem4 = new Project();
             dataItem4.ID = "PR 04";
             dataItem4.Name = "Grossary Store Inventory Record Management Program";
-            dataItem4.DateCreated = DateTime.Now;
-            dataItem4.DateModified = DateTime.Now;
+            dataItem4.DateCreated = DateTime.Now.Date;
+            dataItem4.DateModified = DateTime.Now.Date;
             dataItem4.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
             dataItem4.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "CHaun" });
             dataItem4.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
@@ -117,8 +117,8 @@ namespace MyProjects.ViewModels
             Project dataItem5 = new Project();
             dataItem5.ID = "PR 05";
             dataItem5.Name = "Photo Editing software";
-            dataItem5.DateCreated = DateTime.Now;
-            dataItem5.DateModified = DateTime.Now;
+            dataItem5.DateCreated = DateTime.Now.Date;
+            dataItem5.DateModified = DateTime.Now.Date;
             dataItem5.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "Jhon" });
             dataItem5.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "CHaun" });
             dataItem5.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "Jhon" });
@@ -128,7 +128,7 @@ namespace MyProjects.ViewModels
             //            OnPropertyChanged();
 
         }
-
+            
         void AddNewDataItem()
         {
             Debug.WriteLine("Action: New event");

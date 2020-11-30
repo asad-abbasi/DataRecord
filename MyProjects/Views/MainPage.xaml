@@ -4,65 +4,60 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             Title="My Project -- Project Page"
+             IconImageSource="check2x.png" 
              x:Class="MyProjects.Views.MainPage">
     <!--   <StackLayout>-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+" Clicked="OnNewButtonClicked">
+            <ToolbarItem.IconImageSource>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="Android, UWP" Value="plus.png" />
+                </OnPlatform>
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
 
     <!-- Initialized for Portrait mode.-->
-        <Grid x:Name="mainGrid">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="0" />
-        </Grid.ColumnDefinitions>           
-        
         <!-- Data display. -->
         <ListView x:Name="listView"
                   HasUnevenRows="True"
               ItemsSource="{Binding DataItemList}" 
-              Header ="List of Data Items"
                   SelectedItem="{Binding CurrentItem}"
-                  Grid.Row="0" Grid.Column="0" Grid.RowSpan="4"
             ItemSelected ="OnListViewItemSelected">
-        <ListView.HeaderTemplate>
-                <DataTemplate>
-                    <Label Text= "List of Data Items"
-                           FontSize="Large"
-                           FontAttributes="Bold"
-                           TextColor="DarkGoldenrod"
-                           HorizontalTextAlignment="Center"/>
-                </DataTemplate>
-         </ListView.HeaderTemplate>
 
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                        <Grid Padding="10">
+                        <Grid Padding="5">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="25" />
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="25" />
+                                <RowDefinition Height="30" />
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding ID}" FontSize="Medium" TextColor="Firebrick"/>
-                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding Name}" TextColor="DarkSlateGray"/>
-                            <Button x:Name ="ButtonDelete" Text="Delete" Grid.Row="1" Grid.Column="1" TextColor="DarkSlateGray" BackgroundColor="BurlyWood" BorderColor="Black"
-                                Command="{Binding Path=BindingContext.DeleteDataItemCommand, Source={x:Reference listView}}" CommandParameter="{Binding .}" HorizontalOptions="End"/>
+
+                            <Grid Grid.Row="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="55" />
+                                    <ColumnDefinition Width="70" />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="25" />
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Grid.Column="0" Text="{Binding ID}" TextColor="Firebrick"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="22/10/20" TextColor="DarkSlateGray"/>
+                            </Grid>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding Name}" MaxLines="2" TextColor="DarkSlateGray"/>
+                            <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="1" Grid.Column="2" BackgroundColor="White"
+                                    Command="{Binding Path=BindingContext.DeleteDataItemCommand, Source={x:Reference listView}}" 
+                                    CommandParameter="{Binding .}" HorizontalOptions="End"/>
                         </Grid>
                 </ViewCell>
                 </DataTemplate>
         </ListView.ItemTemplate>
         </ListView>
-
-        <StackLayout x:Name="detailLayout" Grid.Row="5" Grid.Column="0">
-                <Button Text="New"
-                    Clicked ="OnNewButtonClicked"
-                        />
-        </StackLayout>
-    </Grid>
-
 </ContentPage>
