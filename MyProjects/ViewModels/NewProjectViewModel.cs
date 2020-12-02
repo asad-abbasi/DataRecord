@@ -39,9 +39,9 @@ namespace MyProjects.ViewModels
                 descList = new ObservableCollection<ProjectListItem>();
 
             if (PageType == App.PAGE_TYPE_UPDATE)
-                enable = true;
-            else
                 enable = false;
+            else
+                enable = true;
 
             InsertNewDescCommand = new Command(OnInsertDesc);
             DeleteProjectDescCommand = new Command<ProjectListItem>(OnDeleteDesc) ;
@@ -118,6 +118,12 @@ namespace MyProjects.ViewModels
             {
                 newItem.ID = "PR." + App.NEXT_INDEX;
                 App.NEXT_INDEX++;
+                newItem.DateCreated = DateTime.Now.Date;
+                newItem.DateModified = DateTime.Now.Date;
+            }
+            else
+            {
+                newItem.DateModified = DateTime.Now.Date;
             }
 
             newItem.dataItemDescList = descList;

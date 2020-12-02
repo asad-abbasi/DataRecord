@@ -13,10 +13,11 @@ namespace MyProjects.Models
         public string Name { set; get; }
         public DateTime DateCreated { set; get; }
         public DateTime DateModified { set; get; }
-/*      public string TechnicalSpecs { set; get; }
-        public string VendorName { set; get; }
-        public string ClientName { set; get; }
-*/
+        public string Description { set; get; }
+        /*      public string TechnicalSpecs { set; get; }
+                public string VendorName { set; get; }
+                public string ClientName { set; get; }
+        */
         public ObservableCollection<ProjectListItem> dataItemDescList = new ObservableCollection<ProjectListItem>();
 
         public Project DeepCopy()
@@ -25,12 +26,14 @@ namespace MyProjects.Models
             other.dataItemDescList = new ObservableCollection<ProjectListItem>();
 
             int count = this.dataItemDescList.Count;
-            for (int index = 0; index < count; index++)
+            if (count >= 0)
             {
-                Debug.WriteLine("Action: " + (this.dataItemDescList[index]).Versions);
-                other.dataItemDescList.Add(new ProjectListItem((this.dataItemDescList[index]).Versions, (this.dataItemDescList[index]).CreatorName));
+                for (int index = 0; index < count; index++)
+                {
+                    Debug.WriteLine("Action: " + (this.dataItemDescList[index]).Versions);
+                    other.dataItemDescList.Add(new ProjectListItem((this.dataItemDescList[index]).Versions, (this.dataItemDescList[index]).CreatorName));
+                }
             }
-
             return other;
 
         }

@@ -30,8 +30,6 @@ namespace MyProjects.Views
         {
             if (e.SelectedItem != null)
             {
-                Debug.WriteLine("Action: " + (((Project)(e.SelectedItem)).dataItemDescList[0]).Versions);
-
                 copySelItem = ((Project)e.SelectedItem).DeepCopy();
                 listView.SelectedItem = null;
 

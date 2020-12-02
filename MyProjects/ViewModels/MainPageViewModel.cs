@@ -57,6 +57,7 @@ namespace MyProjects.ViewModels
             dataItem1.Name = "Adding Machine";
             dataItem1.DateCreated = DateTime.Now.Date;
             dataItem1.DateModified = DateTime.Now.Date;
+            dataItem1.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
             dataItem1.dataItemDescList.Add(new ProjectListItem {Versions = "Ver 1.2.2", CreatorName = "Jhon" });
             dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "CHaun" });
             dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "Jhon" });
@@ -70,6 +71,7 @@ namespace MyProjects.ViewModels
             dataItem2.Name = "Adding Machine";
             dataItem2.DateCreated = DateTime.Now.Date;
             dataItem2.DateModified = DateTime.Now.Date;
+            dataItem2.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
             dataItem2.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "Jhon" });
             dataItem2.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "CHaun" });
             dataItem2.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "Jhon" });
@@ -83,6 +85,7 @@ namespace MyProjects.ViewModels
             dataItem6.Name = "Date Storage Machine";
             dataItem6.DateCreated = DateTime.Now.Date;
             dataItem6.DateModified = DateTime.Now.Date;
+            dataItem6.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
             dataItem6.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
             dataItem6.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "CHaun" });
             dataItem6.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
@@ -95,6 +98,7 @@ namespace MyProjects.ViewModels
             dataItem3.Name = "Paitient Record Keeping";
             dataItem3.DateCreated = DateTime.Now.Date;
             dataItem3.DateModified = DateTime.Now.Date;
+            dataItem3.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
             dataItem3.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
             dataItem3.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "CHaun" });
             dataItem3.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
@@ -108,6 +112,7 @@ namespace MyProjects.ViewModels
             dataItem4.DateCreated = DateTime.Now.Date;
             dataItem4.DateModified = DateTime.Now.Date;
             dataItem4.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
+            dataItem4.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
             dataItem4.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "CHaun" });
             dataItem4.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
             dataItem4.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
@@ -119,6 +124,7 @@ namespace MyProjects.ViewModels
             dataItem5.Name = "Photo Editing software";
             dataItem5.DateCreated = DateTime.Now.Date;
             dataItem5.DateModified = DateTime.Now.Date;
+            dataItem5.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
             dataItem5.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "Jhon" });
             dataItem5.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "CHaun" });
             dataItem5.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "Jhon" });

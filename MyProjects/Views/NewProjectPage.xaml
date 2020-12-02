@@ -26,10 +26,11 @@
     </ContentPage.ToolbarItems>
 
     <StackLayout x:Name="detailLayout" Orientation="Vertical">
+            <Entry Text="{Binding NewItem.Name}" Placeholder="Project Title" IsVisible="{Binding Enable}"/>
+            <Editor Text="{Binding NewItem.Description}" Placeholder="Description" HeightRequest="100"
+                    TextColor="DarkSlateGray" />
 
-             <Entry Text="{Binding NewItem.ID}" Placeholder="Enter Id" IsReadOnly="true" IsVisible="{Binding Enable}" TextColor="Firebrick" /> 
-
-            <!--Listview from project page-->
+        <!--Listview from project page-->
             <ListView x:Name="listView" 
                 HasUnevenRows="True"
                 ItemsSource="{Binding DescList}"
