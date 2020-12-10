@@ -58,8 +58,8 @@
                                     <RowDefinition Height="33" />
                                     <RowDefinition Height="33" />
                                 </Grid.RowDefinitions>
-                                <Entry Grid.Row="0" Grid.Column="0" Placeholder="Enter Version" Text="{Binding Versions}" FontSize="Micro" TextColor="DarkSlateGray" IsEnabled="True"/>
-                                <Entry Grid.Row="1" Grid.Column="0" Placeholder="Enter Version" Text="{Binding CreatorName}" FontSize="Micro" TextColor="DarkSlateGray"/>
+                                <Entry Grid.Row="0" Grid.Column="0" Placeholder="Enter Version" Text="{Binding Versions}" FontSize="Small" TextColor="DarkSlateGray" IsEnabled="True"/>
+                                <Entry Grid.Row="1" Grid.Column="0" Placeholder="Enter Version" Text="{Binding CreatorName}" FontSize="Small" TextColor="DarkSlateGray"/>
                             <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="1" Grid.Column="1"  BorderColor="Black"
                                 Command="{Binding Path=BindingContext.DeleteProjectDescCommand, Source={x:Reference listView}}" 
                                     CommandParameter="{Binding .}" HorizontalOptions="End"/>

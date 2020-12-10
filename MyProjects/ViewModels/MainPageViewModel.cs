@@ -46,6 +46,7 @@ namespace MyProjects.ViewModels
             {
                 dataItemList.Add(new Project
                 {
+                    Id = dataItemList_Temp[index].Id,
                     Name = dataItemList_Temp[index].Name,
                     DateCreated = dataItemList_Temp[index].DateModified,
                     DateModified = dataItemList_Temp[index].DateModified,

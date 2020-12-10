@@ -20,8 +20,10 @@ namespace MyProjects.Models
         public Project project { set; get; }
         public ProjectListItem()
         { }
-        public ProjectListItem(string Versions, string CreatorName)
+        public ProjectListItem(int Id, int ProjectId, string Versions, string CreatorName)
         {
+            this.Id = Id;
+            this.ProjectId = ProjectId;
             this.Versions = string.Copy(Versions);
             this.CreatorName = string.Copy(CreatorName);
         }

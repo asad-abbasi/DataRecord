@@ -74,18 +74,21 @@ namespace MyProjects.Models
             if (pageType == App.PAGE_TYPE_NEW)
             {
                 Database.InsertWithChildren(item, recursive: true);
-                Database.UpdateWithChildren(item);
+//                Database.Insert(item);
+//                Database.InsertAll(item.dataItemDescList);
+//                Database.UpdateWithChildren(item);
             }
             else
             {
-                /*                Database.InsertWithChildren(item.dataItemDescList[item.dataItemDescList.Count-1], recursive:true );
-                                Database.Update(item);
-                                Database.UpdateWithChildren(item);
-                */
-                Database.Delete(item, recursive: true);
-                Database.InsertWithChildren(item);
- //               Database.UpdateWithChildren(item);
-
+                Database.Update(item);
+                Database.Update(new ProjectListItem()
+                {
+                    Versions = item.dataItemDescList[item.dataItemDescList.Count - 1].Versions,
+                    CreatorName = item.dataItemDescList[item.dataItemDescList.Count - 1].CreatorName
+                } );
+                ProjectListItem pl = item.dataItemDescList[item.dataItemDescList.Count - 1];
+                Database.Insert(pl);
+                Database.UpdateWithChildren(item);
             }
         }
 

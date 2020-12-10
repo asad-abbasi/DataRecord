@@ -34,8 +34,10 @@ namespace MyProjects.Models
                 for (int index = 0; index < count; index++)
                 {
                     Debug.WriteLine("Action: " + (this.dataItemDescList[index]).Versions);
-                    other.dataItemDescList.Add(new ProjectListItem((this.dataItemDescList[index]).Versions,
-                                                                    (this.dataItemDescList[index]).CreatorName));
+                    other.dataItemDescList.Add(new ProjectListItem(this.dataItemDescList[index].Id,
+                                                                    this.dataItemDescList[index].ProjectId,
+                                                                    this.dataItemDescList[index].Versions,
+                                                                    this.dataItemDescList[index].CreatorName));
                 }
             }
             return other;

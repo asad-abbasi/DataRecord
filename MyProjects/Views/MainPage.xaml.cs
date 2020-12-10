@@ -53,6 +53,8 @@ namespace MyProjects.Views
 
             ((MainPageViewModel)BindingContext).SaveNewItemToList(newItem, pageType, SelItemIndex);
         }
+
+
  /*       protected override async void OnAppearing()
         {
             base.OnAppearing();
