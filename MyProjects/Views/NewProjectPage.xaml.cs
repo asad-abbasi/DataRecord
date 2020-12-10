@@ -43,7 +43,7 @@ namespace MyProjects.Views
             newViewModel.GetDataReady();
 
             Project newItem = newViewModel.NewItem;
-            Debug.WriteLine("Action: " + newItem.ID);
+//            Debug.WriteLine("Action: " + newItem.Id);
 
             homePage.SaveNewItem(newItem, PageType);//some info to tell new or modified
             await Navigation.PopAsync();

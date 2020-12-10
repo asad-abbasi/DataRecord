@@ -17,11 +17,11 @@ namespace MyProjects.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : ContentPage
     {
+        public ObservableCollection<Project> itemsList;
         public MainPage()
         {
             InitializeComponent();
             BindingContext = new MainPageViewModel();
-//            var todoitem;
         }
 
         Project copySelItem;
@@ -53,5 +53,16 @@ namespace MyProjects.Views
 
             ((MainPageViewModel)BindingContext).SaveNewItemToList(newItem, pageType, SelItemIndex);
         }
-    }
+ /*       protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            itemsList = new ObservableCollection<Project>(await ((MainPageViewModel)BindingContext).Database.GetItemsAsync());
+            Debug.WriteLine("Action: " + (this.itemsList[0]).Name);
+
+ //           listView.ItemsSource = await ((MainPageViewModel)BindingContext).Database.GetItemsAsync();
+            listView.ItemsSource = itemsList;
+        }
+*/    }
+
+
 }

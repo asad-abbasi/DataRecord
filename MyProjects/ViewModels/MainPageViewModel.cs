@@ -15,15 +15,47 @@ namespace MyProjects.ViewModels
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
+        ObservableCollection<Project> dataItemList_Temp = new ObservableCollection<Project>();
         ObservableCollection<Project> dataItemList = new ObservableCollection<Project>();
         Project currentItem;
+        public ProjectDatabase Database;
+
 
         public MainPageViewModel()
         {
             AddNewDataItemCommand = new Command(/*asynv () await*/ AddNewDataItem /*() => !IsBussy*/);
             DeleteDataItemCommand = new Command<Project>(DeleteDataItem);
 
-            AddNewDataItemToList();
+            //new db code
+            if (Database == null)
+                Database = new ProjectDatabase();
+            GetDatabase();
+
+            //commented for db
+            //           AddNewDataItemToList();
+        }
+
+        //new db method
+        protected void GetDatabase()
+        {
+ //           Project p = Database.GetItem();
+            dataItemList_Temp = new ObservableCollection<Project>(Database.GetItems());
+
+            int count = dataItemList_Temp.Count;
+            for (int index = 0; index < count; index++)
+            {
+                dataItemList.Add(new Project
+                {
+                    Name = dataItemList_Temp[index].Name,
+                    DateCreated = dataItemList_Temp[index].DateModified,
+                    DateModified = dataItemList_Temp[index].DateModified,
+                    Description = dataItemList_Temp[index].Description,
+                    dataItemDescList = dataItemList_Temp[index].dataItemDescList
+                }) ;
+            }
+
+ //           Debug.WriteLine("Action: " + (dataItemList[0]).Name);
+            OnPropertyChanged();
         }
 
         public ObservableCollection<Project> DataItemList
@@ -49,7 +81,7 @@ namespace MyProjects.ViewModels
             dataItemList.Remove(itemSelected);
             OnPropertyChanged();
         }
-        void AddNewDataItemToList()
+/*        void AddNewDataItemToList()
         {
             Project dataItem1 = new Project();
 
@@ -134,7 +166,7 @@ namespace MyProjects.ViewModels
             //            OnPropertyChanged();
 
         }
-            
+*/            
         void AddNewDataItem()
         {
             Debug.WriteLine("Action: New event");
@@ -143,21 +175,19 @@ namespace MyProjects.ViewModels
         void DeleteDataItem(Project dRItem)
         {
             dataItemList.Remove(dRItem);
+            Database.DeleteItem(dRItem);
         }
 
         public void SaveNewItemToList(Project newItem, int pageType, int updateItemIndex)
         {
             //if new item
             if (pageType == App.PAGE_TYPE_NEW)
-            {
                 dataItemList.Add(newItem);
-                OnPropertyChanged();
-            }
             else
-            {
                 dataItemList[updateItemIndex] = newItem;
-                OnPropertyChanged();
-            }
+            OnPropertyChanged();
+            Database.SaveItem(newItem, pageType);///new line for db
+
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

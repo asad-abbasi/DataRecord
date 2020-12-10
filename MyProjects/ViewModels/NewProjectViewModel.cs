@@ -116,8 +116,8 @@ namespace MyProjects.ViewModels
         {
             if (PageType == App.PAGE_TYPE_NEW)
             {
-                newItem.ID = "PR." + App.NEXT_INDEX;
-                App.NEXT_INDEX++;
+//                newItem.ID = "PR." + App.NEXT_INDEX;
+//                App.NEXT_INDEX++;
                 newItem.DateCreated = DateTime.Now.Date;
                 newItem.DateModified = DateTime.Now.Date;
             }
