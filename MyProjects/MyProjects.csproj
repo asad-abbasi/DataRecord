@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Compile Remove="MainPage.xaml.cs" />
+    <Compile Remove="SQLLite.Net\SQLLite.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +25,10 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\pic_01.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="SQLLite.Net\SQLLite.cs" />
   </ItemGroup>
 
   <ItemGroup>
