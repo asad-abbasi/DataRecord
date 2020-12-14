@@ -37,6 +37,7 @@ namespace MyProjects.Views
                 MainPageViewModel mainViewModel = ((MainPageViewModel)BindingContext);
                 //pass this index to new SaveNewItem method to overwrite the updated selected item
                 SelItemIndex = mainViewModel.DataItemList.IndexOf((Project)e.SelectedItem);
+//                SelItemIndex = Project.DataItemList.IndexOf((Project)e.SelectedItem);
 
                 await Navigation.PushAsync(new ProjectPage(copySelItem, App.PAGE_TYPE_UPDATE)); //update/display page
             }

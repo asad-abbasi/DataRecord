@@ -22,7 +22,7 @@
         <!-- Data display. -->
         <ListView x:Name="listView"
                   HasUnevenRows="True"
-              ItemsSource="{Binding DataItemList}" 
+                  ItemsSource ="{Binding DataItemList}"
                   SelectedItem="{Binding CurrentItem}"
             ItemSelected ="OnListViewItemSelected">
 

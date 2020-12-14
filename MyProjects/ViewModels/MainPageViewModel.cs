@@ -17,8 +17,9 @@ namespace MyProjects.ViewModels
     {
         ObservableCollection<Project> dataItemList_Temp = new ObservableCollection<Project>();
         ObservableCollection<Project> dataItemList = new ObservableCollection<Project>();
+
         Project currentItem;
-        public ProjectDatabase Database;
+//        public ProjectDatabase Database;
 
 
         public MainPageViewModel()
@@ -26,20 +27,17 @@ namespace MyProjects.ViewModels
             AddNewDataItemCommand = new Command(/*asynv () await*/ AddNewDataItem /*() => !IsBussy*/);
             DeleteDataItemCommand = new Command<Project>(DeleteDataItem);
 
-            //new db code
-            if (Database == null)
-                Database = new ProjectDatabase();
             GetDatabase();
-
-            //commented for db
-            //           AddNewDataItemToList();
+            
+//            commented for db
+//           AddNewDataItemToList();
         }
 
         //new db method
-        protected void GetDatabase()
+       protected void GetDatabase()
         {
- //           Project p = Database.GetItem();
-            dataItemList_Temp = new ObservableCollection<Project>(Database.GetItems());
+            dataItemList_Temp = new ObservableCollection<Project>(App.Database.GetItems());
+            dataItemList = new ObservableCollection<Project>();
 
             int count = dataItemList_Temp.Count;
             for (int index = 0; index < count; index++)
@@ -48,26 +46,28 @@ namespace MyProjects.ViewModels
                 {
                     Id = dataItemList_Temp[index].Id,
                     Name = dataItemList_Temp[index].Name,
-                    DateCreated = dataItemList_Temp[index].DateModified,
+                    DateCreated = dataItemList_Temp[index].DateCreated,
                     DateModified = dataItemList_Temp[index].DateModified,
                     Description = dataItemList_Temp[index].Description,
                     dataItemDescList = dataItemList_Temp[index].dataItemDescList
                 }) ;
             }
 
- //           Debug.WriteLine("Action: " + (dataItemList[0]).Name);
+//           Debug.WriteLine("Action: " + (dataItemList[0]).Name);
             OnPropertyChanged();
         }
-
+             
+     //         Removed 12-Dec
         public ObservableCollection<Project> DataItemList
         {
             set
             {
                 dataItemList = value;
-                OnPropertyChanged();
+//                OnPropertyChanged();
             }
             get { return dataItemList; }
         }
+        
         public Project CurrentItem
         {
             set
@@ -80,6 +80,7 @@ namespace MyProjects.ViewModels
         public void DeleteDataItemFromList(Project itemSelected)
         {
             dataItemList.Remove(itemSelected);
+ //           App.DataItemList.Remove(itemSelected);
             OnPropertyChanged();
         }
 /*        void AddNewDataItemToList()
@@ -176,7 +177,8 @@ namespace MyProjects.ViewModels
         void DeleteDataItem(Project dRItem)
         {
             dataItemList.Remove(dRItem);
-            Database.DeleteItem(dRItem);
+ //           App.DataItemList.Remove(dRItem);
+            App.Database.DeleteItem(dRItem);
         }
 
         public void SaveNewItemToList(Project newItem, int pageType, int updateItemIndex)
@@ -187,7 +189,7 @@ namespace MyProjects.ViewModels
             else
                 dataItemList[updateItemIndex] = newItem;
             OnPropertyChanged();
-            Database.SaveItem(newItem, pageType);///new line for db
+            App.Database.SaveItem(newItem, pageType);///new line for db
 
         }
 

@@ -1,6 +1,7 @@
 ﻿using MyProjects.Models;
 using MyProjects.Views;
 using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,18 +12,38 @@ namespace MyProjects
         public static int PAGE_TYPE_NEW = 1;
         public static int PAGE_TYPE_UPDATE = 0;
         public static long NEXT_INDEX = 0;
-        public App()
+        static ProjectDatabase database;
+
+    public App()
         {
             InitializeComponent();
-//        CurrentInfo = new DRItem();
 
             MainPage = new NavigationPage(new MainPage());
         }
+        public static ProjectDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new ProjectDatabase();
+                }
+                return database;
+            }
 
-        public Project CurrentInfo { private set; get; }
+        }
 
+/*        protected void GetDatabase()
+        {
+
+            database = new ProjectDatabase();
+            DataItemList = new ObservableCollection<Project>();
+            Project.DataItemList = new ObservableCollection<Project>(database.GetItems());
+        }
+*/
         protected override void OnStart()
         {
+//            GetDatabase();
         }
 
         protected override void OnSleep()

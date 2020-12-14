@@ -12,23 +12,9 @@ using System.Diagnostics;
 
 namespace MyProjects.Models
 {
-    class ProjectDatabase
+    public class ProjectDatabase
     {
-/*        static readonly Lazy<SQLiteAsyncConnection> lazyInitializer = new Lazy<SQLiteAsyncConnection>(() =>
-        {
-            return new SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
-        });
 
-        static SQLiteAsyncConnection Database => lazyInitializer.Value;
- */
-
-        //changes made for one to many blobbed text 7-dec-20
-/*        static readonly Lazy<SQLiteConnection> lazyInitializer = new Lazy<SQLiteConnection>(() =>
-        {
-            return new SQLiteConnection(Constants.DatabasePath, Constants.Flags);
-        });
- */
-        
         static SQLiteConnection Database = new SQLiteConnection(Constants.DatabasePath);
         static bool initialized = false;
 
@@ -39,11 +25,18 @@ namespace MyProjects.Models
 
         void Initialize()
         {
+ //           Database.DropTable<Project>();
+ //           Database.DropTable<ProjectListItem>();
             if (!initialized)
             {
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Project).Name))
                 {
-                    Database.CreateTable<Project>();
+                    if (Database.CreateTable<Project>()==0)
+                    {
+                        Database.DropTable<ProjectListItem>();
+                        AddTestDataToDB();
+                    }
+//                    AddTestDataToDB();
                 }
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(ProjectListItem).Name))
                 {
@@ -54,6 +47,79 @@ namespace MyProjects.Models
                 initialized = true;
             }
         }
+
+        void AddTestDataToDB()
+        {
+            Project dataItem1 = new Project();
+            dataItem1.dataItemDescList = new ObservableCollection<ProjectListItem>();
+            dataItem1.Name = "Adding Machine";
+            dataItem1.DateCreated = DateTime.Now.Date;
+            dataItem1.DateModified = DateTime.Now.Date;
+            dataItem1.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
+            dataItem1.dataItemDescList.Add(new ProjectListItem {Versions = "Ver 1.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "CHaun" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 1.2.2", CreatorName = "Jhon" });
+            
+            SaveItem(dataItem1, App.PAGE_TYPE_NEW);
+
+            dataItem1.Name = "Adding Machine 2";
+            dataItem1.DateCreated = DateTime.Now.Date;
+            dataItem1.DateModified = DateTime.Now.Date;
+            dataItem1.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "CHaun" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 6.2.2", CreatorName = "Jhon" });
+            SaveItem(dataItem1, App.PAGE_TYPE_NEW);
+
+            dataItem1.Name = "Date Storage Machine";
+            dataItem1.DateCreated = DateTime.Now.Date;
+            dataItem1.DateModified = DateTime.Now.Date;
+            dataItem1.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "CHaun" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
+            SaveItem(dataItem1, App.PAGE_TYPE_NEW);
+
+            dataItem1.Name = "Paitient Record Keeping";
+            dataItem1.DateCreated = DateTime.Now.Date;
+            dataItem1.DateModified = DateTime.Now.Date;
+            dataItem1.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "CHaun" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 3.2.2", CreatorName = "Jhon" });
+            SaveItem(dataItem1, App.PAGE_TYPE_NEW);
+
+            dataItem1.Name = "Grossary Store Inventory Record Management Program";
+            dataItem1.DateCreated = DateTime.Now.Date;
+            dataItem1.DateModified = DateTime.Now.Date;
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
+            dataItem1.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "CHaun" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 4.2.2", CreatorName = "Jhon" });
+            SaveItem(dataItem1, App.PAGE_TYPE_NEW);
+
+            dataItem1.Name = "Photo Editing software";
+            dataItem1.DateCreated = DateTime.Now.Date;
+            dataItem1.DateModified = DateTime.Now.Date;
+            dataItem1.Description = "Machine that can add its input to the previous sum. Numbers should be less than 5 digits, floating point numbers are also possible";
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "CHaun" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "Jhon" });
+            dataItem1.dataItemDescList.Add(new ProjectListItem { Versions = "Ver 5.2.2", CreatorName = "Jhon" });
+            SaveItem(dataItem1, App.PAGE_TYPE_NEW);
+        }
+
 
         public List<Project> GetItems()
         {
