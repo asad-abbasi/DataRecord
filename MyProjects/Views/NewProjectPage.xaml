@@ -33,6 +33,7 @@
         <!--Listview from project page-->
             <ListView x:Name="listView" 
                 HasUnevenRows="True"
+                SeparatorVisibility="None"
                 ItemsSource="{Binding DescList}"
                 Header ="List of Project Description"
                  SeparatorColor="Firebrick"
@@ -49,21 +50,25 @@
             <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid Padding="10" BackgroundColor="AliceBlue">
+                        <ContentView Padding="5">
+                            <Frame OutlineColor="Brown" Padding="5">
+                                <Grid Padding="2" BackgroundColor="AliceBlue">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="30" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="33" />
-                                    <RowDefinition Height="33" />
+                                    <RowDefinition Height="39" />
+                                    <RowDefinition Height="35" />
                                 </Grid.RowDefinitions>
-                                <Entry Grid.Row="0" Grid.Column="0" Placeholder="Enter Version" Text="{Binding Versions}" FontSize="Small" TextColor="DarkSlateGray" IsEnabled="True"/>
-                                <Entry Grid.Row="1" Grid.Column="0" Placeholder="Enter Version" Text="{Binding CreatorName}" FontSize="Small" TextColor="DarkSlateGray"/>
-                            <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="1" Grid.Column="1"  BorderColor="Black"
-                                Command="{Binding Path=BindingContext.DeleteProjectDescCommand, Source={x:Reference listView}}" 
-                                    CommandParameter="{Binding .}" HorizontalOptions="End"/>
-                            </Grid>
+                                    <Entry Grid.Row="0" Grid.Column="0" Placeholder="Enter Version" Text="{Binding Versions}" FontSize="18" TextColor="DarkSlateGray" IsEnabled="True"/>
+                                    <Entry Grid.Row="1" Grid.Column="0" Placeholder="Enter Version" Text="{Binding CreatorName}" FontSize="14" TextColor="DarkSlateGray"/>
+                                    <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="1" Grid.Column="1"  BorderColor="Black"
+                                        Command="{Binding Path=BindingContext.DeleteProjectDescCommand, Source={x:Reference listView}}" 
+                                        CommandParameter="{Binding .}" HorizontalOptions="End"/>
+                                </Grid>
+                            </Frame>
+                        </ContentView>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>

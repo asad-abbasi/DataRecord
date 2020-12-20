@@ -6,6 +6,7 @@
              mc:Ignorable="d"
              Title="My Project -- Project Page"
              IconImageSource="check2x.png" 
+                        
              x:Class="MyProjects.Views.MainPage">
     <!--   <StackLayout>-->
     <ContentPage.ToolbarItems>
@@ -29,23 +30,27 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                        <Grid Padding="5">
+                    <ContentView Padding="5">
+                        <Frame OutlineColor="Brown" BackgroundColor="BlanchedAlmond" Padding="5" >
+                            <Grid Padding="2">
                             <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="300"/>
                             <ColumnDefinition Width="50" />
                             <ColumnDefinition Width="25" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="35" />
+                                <RowDefinition Height="33" />
                                 <RowDefinition Height="25" />
                             </Grid.RowDefinitions>
 
-                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" LineBreakMode="WordWrap" TextColor="Firebrick"/>
-                        <Label Grid.Row="1" Grid.Column="0" Text="{Binding DateCreated}" TextColor="DarkSlateGray"/>
-                        <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="1" Grid.Column="2" BackgroundColor="White"
+                            <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" LineBreakMode="WordWrap" FontSize="18" TextColor="Firebrick"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding DateCreated}" FontSize="14" TextColor="DarkSlateGray"/>
+                            <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" BackgroundColor="White"
                                     Command="{Binding Path=BindingContext.DeleteDataItemCommand, Source={x:Reference listView}}" 
                                     CommandParameter="{Binding .}" HorizontalOptions="End"/>
-                        </Grid>
+                            </Grid>
+                        </Frame>
+                    </ContentView>
                 </ViewCell>
                 </DataTemplate>
         </ListView.ItemTemplate>

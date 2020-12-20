@@ -34,13 +34,14 @@ namespace MyProjects.Models
                     if (Database.CreateTable<Project>()==0)
                     {
                         Database.DropTable<ProjectListItem>();
-                        AddTestDataToDB();
                     }
 //                    AddTestDataToDB();
                 }
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(ProjectListItem).Name))
                 {
-                    Database.CreateTable<ProjectListItem>();
+                    if(Database.CreateTable<ProjectListItem>()==0)
+                        AddTestDataToDB();
+
 //                    Database.CreateTables(CreateFlags.None, typeof(ProjectListItem));
                 }
 
