@@ -38,7 +38,7 @@ namespace MyProjects.ViewModels
             else
                 descList = new ObservableCollection<ProjectListItem>();
 
-            if (PageType == App.PAGE_TYPE_UPDATE)
+            if (PageType == ProjectDatabase.PAGE_TYPE_UPDATE)
                 enable = false;
             else
                 enable = true;
@@ -114,7 +114,7 @@ namespace MyProjects.ViewModels
         //not sure about this
         public void GetDataReady()
         {
-            if (PageType == App.PAGE_TYPE_NEW)
+            if (PageType == ProjectDatabase.PAGE_TYPE_NEW)
             {
 //                newItem.ID = "PR." + App.NEXT_INDEX;
 //                App.NEXT_INDEX++;

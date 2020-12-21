@@ -36,22 +36,22 @@ namespace MyProjects.ViewModels
         //new db method
        protected void GetDatabase()
         {
-            dataItemList_Temp = new ObservableCollection<Project>(App.Database.GetItems());
-            dataItemList = new ObservableCollection<Project>();
+            dataItemList = new ObservableCollection<Project>(ProjectDatabase.GetItems());
+           // dataItemList = new ObservableCollection<Project>();
 
-            int count = dataItemList_Temp.Count;
-            for (int index = 0; index < count; index++)
-            {
-                dataItemList.Add(new Project
-                {
-                    Id = dataItemList_Temp[index].Id,
-                    Name = dataItemList_Temp[index].Name,
-                    DateCreated = dataItemList_Temp[index].DateCreated,
-                    DateModified = dataItemList_Temp[index].DateModified,
-                    Description = dataItemList_Temp[index].Description,
-                    dataItemDescList = dataItemList_Temp[index].dataItemDescList
-                }) ;
-            }
+            //int count = dataItemList_Temp.Count;
+            //for (int index = 0; index < count; index++)
+            //{
+            //    dataItemList.Add(new Project
+            //    {
+            //        Id = dataItemList_Temp[index].Id,
+            //        Name = dataItemList_Temp[index].Name,
+            //        DateCreated = dataItemList_Temp[index].DateCreated,
+            //        DateModified = dataItemList_Temp[index].DateModified,
+            //        Description = dataItemList_Temp[index].Description,
+            //        dataItemDescList = dataItemList_Temp[index].dataItemDescList
+            //    }) ;
+            //}
 
 //           Debug.WriteLine("Action: " + (dataItemList[0]).Name);
             OnPropertyChanged();
@@ -178,18 +178,18 @@ namespace MyProjects.ViewModels
         {
             dataItemList.Remove(dRItem);
  //           App.DataItemList.Remove(dRItem);
-            App.Database.DeleteItem(dRItem);
+            ProjectDatabase.DeleteItem(dRItem);
         }
 
         public void SaveNewItemToList(Project newItem, int pageType, int updateItemIndex)
         {
             //if new item
-            if (pageType == App.PAGE_TYPE_NEW)
+            if (pageType == ProjectDatabase.PAGE_TYPE_NEW)
                 dataItemList.Add(newItem);
             else
                 dataItemList[updateItemIndex] = newItem;
             OnPropertyChanged();
-            App.Database.SaveItem(newItem, pageType);///new line for db
+            ProjectDatabase.SaveItem(newItem, pageType);///new line for db
 
         }
 

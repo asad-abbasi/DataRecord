@@ -39,13 +39,13 @@ namespace MyProjects.Views
                 SelItemIndex = mainViewModel.DataItemList.IndexOf((Project)e.SelectedItem);
 //                SelItemIndex = Project.DataItemList.IndexOf((Project)e.SelectedItem);
 
-                await Navigation.PushAsync(new ProjectPage(copySelItem, App.PAGE_TYPE_UPDATE)); //update/display page
+                await Navigation.PushAsync(new ProjectPage(copySelItem, ProjectDatabase.PAGE_TYPE_UPDATE)); //update/display page
             }
         }
 
         async void OnNewButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new ProjectPage(null, App.PAGE_TYPE_NEW));    //new page
+            await Navigation.PushAsync(new ProjectPage(null, ProjectDatabase.PAGE_TYPE_NEW));    //new page
 
         }
 
