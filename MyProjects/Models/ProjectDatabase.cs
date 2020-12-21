@@ -39,7 +39,7 @@ namespace MyProjects.Models
                 }
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(ProjectListItem).Name))
                 {
-                    if(Database.CreateTable<ProjectListItem>()==0)
+                    if(Database.CreateTable<ProjectListItem>()!=0)
                         AddTestDataToDB();
 
 //                    Database.CreateTables(CreateFlags.None, typeof(ProjectListItem));
