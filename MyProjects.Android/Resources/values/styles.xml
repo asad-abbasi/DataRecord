@@ -16,7 +16,9 @@
 		<!--<item name="colorAccent">#FF4081</item>-->
 	</style>
 
-
+  <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+      <item name="android:statusBarColor">@color/Black</item>
+  </style>
 
 	<style name="AppMyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
 		<item name="android:textColor">#000080</item>
