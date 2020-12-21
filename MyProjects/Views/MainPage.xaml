@@ -26,13 +26,14 @@
                   ItemsSource ="{Binding DataItemList}"
                   SelectedItem="{Binding CurrentItem}"
             ItemSelected ="OnListViewItemSelected">
-
+        
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <ContentView Padding="5">
                         <Frame OutlineColor="Brown" BackgroundColor="BlanchedAlmond" Padding="5" >
-                            <Grid Padding="2">
+                        
+                        <Grid Padding="2">
                             <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="300"/>
                             <ColumnDefinition Width="50" />
