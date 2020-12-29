@@ -22,6 +22,7 @@ namespace MyProjects.Views
         {
             InitializeComponent();
             BindingContext = new MainPageViewModel();
+            
         }
 
         Project copySelItem;

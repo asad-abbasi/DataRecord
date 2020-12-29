@@ -51,7 +51,7 @@
                     <DataTemplate>
                         <ViewCell>
                         <ContentView Padding="5">
-                            <Frame OutlineColor="Brown" Padding="5">
+                            <Frame OutlineColor="Brown" Padding="5" CornerRadius="10">
                                 <Grid Padding="2" BackgroundColor="AliceBlue">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />

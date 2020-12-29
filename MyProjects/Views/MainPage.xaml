@@ -31,8 +31,7 @@
             <DataTemplate>
                 <ViewCell>
                     <ContentView Padding="5">
-                        <Frame OutlineColor="Brown" BackgroundColor="BlanchedAlmond" Padding="5" >
-                        
+                        <Frame OutlineColor="Brown" BackgroundColor="BlanchedAlmond" Padding="5" CornerRadius="10">
                         <Grid Padding="2">
                             <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="300"/>
@@ -45,7 +44,7 @@
                             </Grid.RowDefinitions>
 
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" LineBreakMode="WordWrap" FontSize="18" TextColor="Firebrick"/>
-                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding DateCreated}" FontSize="14" TextColor="DarkSlateGray"/>
+                            <Label Grid.Row="1" Grid.Column="0" Text="{Binding DateModified}" FontSize="14" TextColor="DarkSlateGray"/>
                             <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" BackgroundColor="White"
                                     Command="{Binding Path=BindingContext.DeleteDataItemCommand, Source={x:Reference listView}}" 
                                     CommandParameter="{Binding .}" HorizontalOptions="End"/>

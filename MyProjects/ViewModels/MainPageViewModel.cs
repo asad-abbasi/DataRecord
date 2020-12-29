@@ -15,11 +15,9 @@ namespace MyProjects.ViewModels
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
-        ObservableCollection<Project> dataItemList_Temp = new ObservableCollection<Project>();
         ObservableCollection<Project> dataItemList = new ObservableCollection<Project>();
 
         Project currentItem;
-//        public ProjectDatabase Database;
 
 
         public MainPageViewModel()
@@ -28,7 +26,7 @@ namespace MyProjects.ViewModels
             DeleteDataItemCommand = new Command<Project>(DeleteDataItem);
 
             GetDatabase();
-            
+            dataItemList = new ObservableCollection<Project>(dataItemList.OrderByDescending(i => i.DateModified));
 //            commented for db
 //           AddNewDataItemToList();
         }

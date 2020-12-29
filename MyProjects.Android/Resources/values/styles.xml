@@ -17,7 +17,7 @@
 	</style>
 
   <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-      <item name="android:statusBarColor">@color/Black</item>
+      <item name="android:statusBarColor">@color/Green</item>
   </style>
 
 	<style name="AppMyTheme" parent="Theme.AppCompat.Light.DarkActionBar">

@@ -13,7 +13,6 @@ namespace MyProjects
         public App()
         {
             ProjectDatabase.Load();
-
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainPage());
