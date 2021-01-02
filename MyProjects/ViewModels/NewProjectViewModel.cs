@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MyProjects.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Text;
-using MyProjects.Models;
-using MyProjects.Views;
 using Xamarin.Forms;
 
 namespace MyProjects.ViewModels
