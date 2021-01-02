@@ -22,16 +22,20 @@ namespace MyProjects.Models
  
         public static void Load()
         {
-            _database = new SQLiteConnection(Constants.DatabasePath);
-//           _database.DropTable<Project>();
-//            if (!_database.TableMappings.Any(m => m.MappedType.Name == typeof(Project).Name))
+            //            SQLiteAsyncConnection(Constants.DatabasePath, Constants.Flags);
+            //            static SQLiteAsyncConnection Database => lazyInitializer.Value;
+
+            _database = new SQLiteConnection(Constants.DatabasePath, Constants.Flags);
+//            _database = new SQLiteConnection("C:Users/sabee/source/repos/asadabbasi/MyProjects.Android/bin/Debug", Constants.Flags);
+//          _database.DropTable<Project>();
+//           if (!_database.TableMappings.Any(m => m.MappedType.Name == typeof(Project).Name))
             {
                 if (_database.CreateTable<Project>()==0)
                 {
                     _database.DropTable<ProjectListItem>();
                 }
             }
- //           if (!_database.TableMappings.Any(m => m.MappedType.Name == typeof(ProjectListItem).Name))
+//            if (!_database.TableMappings.Any(m => m.MappedType.Name == typeof(ProjectListItem).Name))
             {
                 if (_database.CreateTable<ProjectListItem>() == 0)
                     AddTestDataToDB();

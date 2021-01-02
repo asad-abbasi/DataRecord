@@ -5,7 +5,8 @@ namespace MyProjects
 {
     public static class Constants
     {
-        public const string DatabaseFilename = "ProjectDB.db3";
+ //       public const string DatabaseFilename = "ProjectDB.db3";
+        public const string DatabaseFilename = "NewDB.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
             // open the database in read/write mode
