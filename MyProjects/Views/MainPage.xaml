@@ -10,12 +10,18 @@
              x:Class="MyProjects.Views.MainPage">
     <!--   <StackLayout>-->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="+" Clicked="OnNewButtonClicked">
+        <ToolbarItem  Order="Primary" Text="+" Clicked="OnNewButtonClicked" Priority="1">
             <ToolbarItem.IconImageSource>
                 <OnPlatform x:TypeArguments="ImageSource">
                     <On Platform="Android, UWP" Value="plus.png" />
                 </OnPlatform>
             </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+        <ToolbarItem Order="Primary"
+                     Text="Sort"
+                     IconImageSource="sort.png"
+                     Priority="0"
+                     Command="{Binding SortCommand}">
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 
@@ -25,13 +31,14 @@
                   HasUnevenRows="True"
                   ItemsSource ="{Binding DataItemList}"
                   SelectedItem="{Binding CurrentItem}"
+                  BackgroundColor="#F5B7B1"
             ItemSelected ="OnListViewItemSelected">
         
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
                     <ContentView Padding="5">
-                        <Frame OutlineColor="Brown" BackgroundColor="BlanchedAlmond" Padding="5" CornerRadius="10">
+                        <Frame OutlineColor="Brown" BackgroundColor="Beige" Padding="5" CornerRadius="10">
                         <Grid Padding="2">
                             <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="300"/>
@@ -40,12 +47,13 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="33" />
-                                <RowDefinition Height="25" />
+                                <RowDefinition Height="30" />
                             </Grid.RowDefinitions>
 
                             <Label Grid.Row="0" Grid.Column="0" Text="{Binding Name}" LineBreakMode="WordWrap" FontSize="18" TextColor="Firebrick"/>
                             <Label Grid.Row="1" Grid.Column="0" Text="{Binding DateModified}" FontSize="14" TextColor="DarkSlateGray"/>
-                            <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" BackgroundColor="White"
+                                <Button x:Name ="ButtonDelete" ImageSource ="trash68.png" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" 
+                                        Grid.RowSpan="2" BackgroundColor="Beige" IsTabStop="True" BorderColor="DarkSlateGray" CornerRadius="3"
                                     Command="{Binding Path=BindingContext.DeleteDataItemCommand, Source={x:Reference listView}}" 
                                     CommandParameter="{Binding .}" HorizontalOptions="End"/>
                             </Grid>

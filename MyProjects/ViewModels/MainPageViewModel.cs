@@ -1,32 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MyProjects.Models;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Text;
-using Xamarin.Forms;
-using MyProjects.Models;
-using MyProjects.Views;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using Xamarin.Forms;
 
 namespace MyProjects.ViewModels
 {
     class MainPageViewModel : INotifyPropertyChanged
     {
         ObservableCollection<Project> dataItemList = new ObservableCollection<Project>();
-
         Project currentItem;
-
+        //true for descending
+        public bool sort;
 
         public MainPageViewModel()
         {
-            AddNewDataItemCommand = new Command(/*asynv () await*/ AddNewDataItem /*() => !IsBussy*/);
-            DeleteDataItemCommand = new Command<Project>(DeleteDataItem);
+//           AddNewDataItemCommand = new Command(/*asynv () await*/ AddNewDataItem /*, () => !IsBussy*/);
+           DeleteDataItemCommand = new Command<Project>(DeleteDataItem);
+           SortCommand = new Command(ToggleSort);
 
             GetDatabase();
             dataItemList = new ObservableCollection<Project>(dataItemList.OrderByDescending(i => i.DateModified));
+            sort = false;
 //            commented for db
 //           AddNewDataItemToList();
         }
@@ -167,15 +164,15 @@ namespace MyProjects.ViewModels
 
         }
 */            
-        void AddNewDataItem()
+/*        void AddNewDataItem()
         {
             Debug.WriteLine("Action: New event");
 
         }
+*/
         void DeleteDataItem(Project dRItem)
         {
             dataItemList.Remove(dRItem);
- //           App.DataItemList.Remove(dRItem);
             ProjectDatabase.DeleteItem(dRItem);
         }
 
@@ -186,9 +183,23 @@ namespace MyProjects.ViewModels
                 dataItemList.Add(newItem);
             else
                 dataItemList[updateItemIndex] = newItem;
-            OnPropertyChanged();
-            ProjectDatabase.SaveItem(newItem, pageType);///new line for db
+            if (sort)
+                dataItemList = new ObservableCollection<Project>(dataItemList.OrderBy(i => i.DateModified));
+            else
+                dataItemList = new ObservableCollection<Project>(dataItemList.OrderByDescending(i => i.DateModified));
+            OnPropertyChanged(nameof(DataItemList));
 
+            ProjectDatabase.SaveItem(newItem, pageType);///new line for db
+        }
+
+        void ToggleSort()
+        {
+            sort = !sort;
+            if (sort)
+                dataItemList = new ObservableCollection<Project>(dataItemList.OrderBy(i => i.DateModified));
+            else
+                dataItemList = new ObservableCollection<Project>(dataItemList.OrderByDescending(i => i.DateModified));
+            OnPropertyChanged(nameof(DataItemList));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -200,7 +211,9 @@ namespace MyProjects.ViewModels
             //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        public Command AddNewDataItemCommand { private set; get; }
-        public Command DeleteDataItemCommand { private set; get; } 
-     }
+        public Command AddNewDataItemCommand { private set; get; }//why set and get
+        public Command DeleteDataItemCommand { private set; get; }
+        public Command SortCommand { private set; get; }
+        
+    }
 }

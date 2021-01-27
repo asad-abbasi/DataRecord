@@ -16,17 +16,24 @@
 		<!--<item name="colorAccent">#FF4081</item>-->
 	</style>
 
-  <style name="MainTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-      <item name="android:statusBarColor">@color/Green</item>
+  <style name="MainTheme.Base" parent="Theme.AppCompat.Light">
+      <item name="android:statusBarColor">@color/Maroon</item>
+	  <item name="android:colorPrimaryDark">@color/IndianRed</item>
+	  <item name="android:colorPrimary">@color/IndianRed</item>
+	  <item name="android:textColorPrimary">@color/Maroon</item>
+	  <item name="android:colorBackground">#F5F5DC</item>
+	  <item name="android:itemBackground">#F5F5DC</item>
+	  <item name="android:textColor">@color/Maroon</item>
   </style>
 
-	<style name="AppMyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-		<item name="android:textColor">#000080</item>
+	<style name="AppMyTheme" parent="Theme.AppCompat.Light">
 		<item name="windowActionBar">false</item>		
-		<item name="android:statusBarColor">@color/BlueGray</item>
-		<item name="android:colorPrimaryDark">@color/BlueGray</item>
-		<item name="android:colorPrimary">@color/Teal</item>
-		<item name="android:textColorPrimary">@color/launcher_background</item>
-
+		<item name="android:statusBarColor">@color/IndianRed</item>
+		<item name="android:colorPrimaryDark">@color/IndianRed</item>
+		<item name="android:colorPrimary">@color/IndianRed</item>
+		<item name="android:textColorPrimary">#F5F5DC</item>
+		<item name="android:colorBackground">#F5F5DC</item>
+		<item name="android:itemBackground">#F5F5DC</item>
+		<item name="android:textColor">@color/Maroon</item>
 	</style>
 </resources>

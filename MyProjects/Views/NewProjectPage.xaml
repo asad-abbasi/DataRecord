@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyProjects.Views.ProjectPage"
-             Title="{Binding NewItem.Name}">
+             xmlns:MyProjects="clr-namespace:System.Configuration.Assemblies;assembly=mscorlib"
+                x:Class="MyProjects.Views.ProjectPage" 
+                Title="{Binding NewItem.Name}" BackgroundColor="#F5B7B1">
     <ContentPage.ToolbarItems>
         <ToolbarItem Order="Primary"
                      Text="Icon Item"
@@ -28,17 +29,15 @@
     <StackLayout x:Name="detailLayout" Orientation="Vertical">
             <Entry Text="{Binding NewItem.Name}" Placeholder="Project Title" IsVisible="{Binding Enable}"/>
             <Editor Text="{Binding NewItem.Description}" Placeholder="Description" HeightRequest="100"
-                    TextColor="DarkSlateGray" />
+                    TextColor="DarkSlateGray" BackgroundColor="#F5B7B1"/>
 
         <!--Listview from project page-->
             <ListView x:Name="listView" 
                 HasUnevenRows="True"
-                SeparatorVisibility="None"
                 ItemsSource="{Binding DescList}"
                 Header ="List of Project Description"
-                 SeparatorColor="Firebrick"
-                 
-                        >
+                BackgroundColor="#F5B7B1">
+                
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <Label Text= "Item Detail"
@@ -52,10 +51,10 @@
                         <ViewCell>
                         <ContentView Padding="5">
                             <Frame OutlineColor="Brown" Padding="5" CornerRadius="10">
-                                <Grid Padding="2" BackgroundColor="AliceBlue">
+                                <Grid Padding="2" BackgroundColor="Beige">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="30" />
+                                    <ColumnDefinition Width="320" />
+                                    <ColumnDefinition Width="40" />
                                 </Grid.ColumnDefinitions>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="39" />
@@ -63,7 +62,7 @@
                                 </Grid.RowDefinitions>
                                     <Entry Grid.Row="0" Grid.Column="0" Placeholder="Enter Version" Text="{Binding Versions}" FontSize="18" TextColor="DarkSlateGray" IsEnabled="True"/>
                                     <Entry Grid.Row="1" Grid.Column="0" Placeholder="Enter Version" Text="{Binding CreatorName}" FontSize="14" TextColor="DarkSlateGray"/>
-                                    <Button x:Name ="ButtonDelete" ImageSource ="check.png" Grid.Row="1" Grid.Column="1"  BorderColor="Black"
+                                    <Button x:Name ="ButtonDelete" ImageSource ="trash68.png" Grid.Row="0" Grid.Column="1"  Grid.RowSpan="2" BackgroundColor="Beige"
                                         Command="{Binding Path=BindingContext.DeleteProjectDescCommand, Source={x:Reference listView}}" 
                                         CommandParameter="{Binding .}" HorizontalOptions="End"/>
                                 </Grid>

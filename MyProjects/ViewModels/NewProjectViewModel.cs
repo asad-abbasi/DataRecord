@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MyProjects.Models;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
-using System.Text;
-using MyProjects.Models;
-using MyProjects.Views;
 using Xamarin.Forms;
 
 namespace MyProjects.ViewModels
@@ -15,11 +11,12 @@ namespace MyProjects.ViewModels
     {
         Project newItem = new Project();
         ObservableCollection<ProjectListItem> descList;
-
         DateTime minCreatedDate, maxCreatedDate, maxModifiedDate;
         string version, cName;
         bool enable=false;
+        public bool insertDesc=true;
         int PageType;
+        public bool change=false;
 
         //pageType = 0, if display/update page
         //pageType = 1, if new page
@@ -43,7 +40,7 @@ namespace MyProjects.ViewModels
             else
                 enable = true;
 
-            InsertNewDescCommand = new Command(OnInsertDesc);
+            InsertNewDescCommand = new Command(OnInsertDesc, () => insertDesc);
             DeleteProjectDescCommand = new Command<ProjectListItem>(OnDeleteDesc) ;
             OnPropertyChanged();
         }
@@ -57,6 +54,7 @@ namespace MyProjects.ViewModels
 
         public Project NewItem
         {
+            //set code is not used
             set
             {
                 //not sure about this
@@ -118,12 +116,12 @@ namespace MyProjects.ViewModels
             {
 //                newItem.ID = "PR." + App.NEXT_INDEX;
 //                App.NEXT_INDEX++;
-                newItem.DateCreated = DateTime.Now.Date;
-                newItem.DateModified = DateTime.Now.Date;
+                newItem.DateCreated = DateTime.Now;
+                newItem.DateModified = DateTime.Now;
             }
             else
             {
-                newItem.DateModified = DateTime.Now.Date;
+                newItem.DateModified = DateTime.Now;
             }
 
             newItem.dataItemDescList = descList;
@@ -131,12 +129,24 @@ namespace MyProjects.ViewModels
         }
         void OnInsertDesc()
         {
+            insertDesc = false;
             descList.Add(new ProjectListItem { Versions = " ", CreatorName = " " });
+            ((Command)InsertNewDescCommand).ChangeCanExecute();
+            change = true;
+        }
+        void RefreshCanExecutes()
+        {
+            ((Command)InsertNewDescCommand).ChangeCanExecute();
         }
 
         void OnDeleteDesc(ProjectListItem delItem)
         {
             descList.Remove(delItem);
+            if (delItem.Versions.Equals(" ") ||
+                delItem.CreatorName.Equals(" "))
+                insertDesc = true;
+            ((Command)InsertNewDescCommand).ChangeCanExecute();
+            change = true;
         }
         public Command InsertNewDescCommand { private set; get; }
         public Command DeleteProjectDescCommand { private set; get; }

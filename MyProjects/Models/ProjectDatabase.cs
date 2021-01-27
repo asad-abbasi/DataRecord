@@ -1,14 +1,9 @@
-﻿using System;
+﻿using SQLite;
+using SQLiteNetExtensions.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Threading.Tasks;
-using SQLiteNetExtensions;
-using SQLitePCL;
-using SQLiteNetExtensions.Attributes;
-using SQLite;
-using SQLiteNetExtensions.Extensions;
-using System.Diagnostics;
 
 namespace MyProjects.Models
 {
@@ -23,18 +18,19 @@ namespace MyProjects.Models
         public static void Load()
         {
             _database = new SQLiteConnection(Constants.DatabasePath);
-//          _database.DropTable<Project>();
 //           if (!_database.TableMappings.Any(m => m.MappedType.Name == typeof(Project).Name))
             {
-                if (_database.CreateTable<Project>()==0)
+                if (_database.CreateTable<Project>() == CreateTableResult.Created)
                 {
                     _database.DropTable<ProjectListItem>();
                 }
             }
-//            if (!_database.TableMappings.Any(m => m.MappedType.Name == typeof(ProjectListItem).Name))
+//            if (!_database.TableMappings.Any(m => m.TableName == typeof(ProjectListItem).Name))
             {
-                if (_database.CreateTable<ProjectListItem>() == 0)
+                if (_database.CreateTable<ProjectListItem>() == CreateTableResult.Created)
+                {
                     AddTestDataToDB();
+                }
             }
 
         }

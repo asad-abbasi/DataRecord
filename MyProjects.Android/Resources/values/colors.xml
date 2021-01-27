@@ -24,5 +24,7 @@
 	<color name="Purple">#800080</color>
 	<color name="Lime">#00FF80</color>
 	<color name="Maroon">#800000</color>
+	<color name="IndianRed">#CD5C5C</color>
+	
 
 </resources>

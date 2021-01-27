@@ -17,19 +17,22 @@
             <Color x:Key="Purple">#800080</Color>
             <Color x:Key="Lime">#00FF80</Color>
             <Color x:Key="Maroon">#800000</Color>
+            <Color x:Key="IndianRed">#CD5C5C</Color>
 
         <!-- Implicit styles -->
             <Style TargetType="{x:Type NavigationPage}">
                 <Setter Property="BarBackgroundColor"
-                    Value="{StaticResource Blue}" />
-                <Setter Property="BarTextColor"
+                    Value="{StaticResource IndianRed}" />
+            <Setter Property="BarTextColor"
                     Value="{StaticResource NavigationBarTextColor}" />
-            </Style>
+        </Style>
 
-            <Style TargetType="{x:Type ContentPage}"
+        <Style TargetType="{x:Type ContentPage}"
                ApplyToDerivedTypes="True">
-                <Setter Property="BackgroundColor"
+            <Setter Property="BackgroundColor"
                     Value="{StaticResource NavigationBarTextColor}" />
-            </Style>
+        </Style>
+
+
     </Application.Resources>
 </Application>

@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using MyProjects.Models;
+using MyProjects.ViewModels;
+using System;
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using MyProjects.ViewModels;
-using System.Diagnostics;
-using MyProjects.Models;
-using System.Collections.ObjectModel;
-using MyProjects.Views;
 
 namespace MyProjects.Views
 {
@@ -51,8 +44,9 @@ namespace MyProjects.Views
         }
 
         public void SaveNewItem(Project newItem, int pageType)
-        {
-
+        {   
+            //to remember the previous value of sort
+ //           ((MainPageViewModel)BindingContext).sort = !((MainPageViewModel)BindingContext).sort;
             ((MainPageViewModel)BindingContext).SaveNewItemToList(newItem, pageType, SelItemIndex);
         }
 
